@@ -2,15 +2,43 @@ package com.kodilla.abstracts.homework;
 
 public class Triangle extends Shape {
 
-    @Override
-    public void area() {
-        System.out.println("The area of a triangle is 1/2 base x height");
+    private double d;
+    private double e;
+    private double f;
+    private double height;
+
+    public Triangle(double d, double e, double f, double height) {
+        this.d = d;
+        this.height = height;
+        this.f = f;
+        this.e = e;
     }
 
-    @Override
-    public void perimeter() {
-        System.out.println("The perimeter of a triangle is the sum of the length of the 3 sides");
-
+    public double getD() {
+        return d;
     }
+
+    public double getE() {
+        return e;
+    }
+
+    public double getF() {
+        return f;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    double area() {
+        return d * height / 2;
+    }
+
+    double perimeter() {
+        return d + e + f;
+    }
+
+
 }
+
 

@@ -2,14 +2,22 @@ package com.kodilla.abstracts.homework;
 
 public class Square extends Shape {
 
-    @Override
-    public void area() {
-        System.out.println("The area of a square is base x base");
+    double a;
+
+    public Square(double a) {
+        this.a = a;
     }
 
-    @Override
-    public void perimeter() {
-        System.out.println("The perimeter of a square is 4 x length of the four sides");
-
+    public double area() {
+        return a * a;
     }
+
+    public double perimeter() {
+        return 4 * a;
+    }
+
+    public double getA() {
+        return a;
+    }
+
 }
