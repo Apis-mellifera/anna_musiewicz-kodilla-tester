@@ -1,7 +1,8 @@
 package com.kodilla.abstracts.homework.job;
 
 public class Teacher extends Job {
-    public Teacher() {
-        super(3500, "teaching children");
+
+    public Teacher(int salary, String responsibilities) {
+        super(salary, responsibilities);
     }
 }

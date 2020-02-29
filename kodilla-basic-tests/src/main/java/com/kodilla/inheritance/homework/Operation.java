@@ -6,13 +6,13 @@ public class Operation {
         system.turnOn();
         system.turnOff();
 
-        Computer computer = new Computer(2006);
-        computer.turnOn();
-        computer.turnOff();
+        Windows windows = new Windows(2006);
+        windows.turnOn();
+        windows.turnOff();
 
-        Mobile mobile = new Mobile(2018);
-        mobile.turnOn();
-        mobile.turnOff();
+        Ubuntu ubuntu = new Ubuntu(2018);
+        ubuntu.turnOn();
+        ubuntu.turnOff();
     }
 }
 

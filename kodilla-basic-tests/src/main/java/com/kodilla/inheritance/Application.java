@@ -1,7 +1,7 @@
 package com.kodilla.inheritance;
 
-import com.kodilla.inheritance.homework.Computer;
-import com.kodilla.inheritance.homework.Mobile;
+import com.kodilla.inheritance.homework.Windows;
+import com.kodilla.inheritance.homework.Ubuntu;
 import com.kodilla.inheritance.homework.OperatingSystem;
 
 public class Application {

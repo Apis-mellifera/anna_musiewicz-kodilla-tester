@@ -4,15 +4,13 @@ public class Application {
 
     public static void main(String[] args) {
 
-        Job teacher = new Teacher();
-        Job doctor = new Doctor();
-        Job taxiDriver = new TaxiDriver();
+        Person kate = new Person(new Teacher(4000, "teaching children"), 38, "Kate");
+        Person joe = new Person(new Teacher(5000, "examining patients"), 48, "Joe");
+        Person david = new Person(new Teacher(4000, "transporting passengers"), 40, "David");
 
-        JobProcessor processor = new JobProcessor();
-        processor.process(teacher);
-        processor.process1(doctor);
-        processor.process2(taxiDriver);
+        kate.showPersonDuty();
+        joe.showPersonDuty();
+        david.showPersonDuty();
 
     }
-
 }

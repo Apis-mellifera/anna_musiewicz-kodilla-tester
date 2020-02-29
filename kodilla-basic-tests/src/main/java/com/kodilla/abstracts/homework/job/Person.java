@@ -1,14 +1,18 @@
 package com.kodilla.abstracts.homework.job;
 
 public class Person {
+    private Teacher teacher;
     private int age;
     private String name;
-    private String job;
 
-    public Person(int age, String name, String job) {
+    public Person(Teacher teacher, int age, String name) {
+        this.teacher = teacher;
         this.age = age;
         this.name = name;
-        this.job = job;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
     }
 
     public int getAge() {
@@ -19,8 +23,8 @@ public class Person {
         return name;
     }
 
-    public String getJob() {
-        return job;
+    public void showPersonDuty() {
+        System.out.println(this.getName() + " is responsible for " + this.teacher.getResponsibilities());
     }
 
 }
