@@ -9,7 +9,6 @@ public class CarRace {
         doRace(mercedes);
         Volvo volvo = new Volvo(0);
         doRace(volvo);
-
     }
 
     public static void doRace(Car car) {
