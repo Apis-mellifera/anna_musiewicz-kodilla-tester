@@ -24,19 +24,4 @@ public class CashMachineTestSuite {
         assertEquals(200, transactions[0]);
         assertEquals(100, transactions[1]);
     }
-    @ Test
-    public void shouldCalculateTransactionsAverage() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.add(-2000);
-        cashMachine.add(-50);
-        cashMachine.add(100);
-        cashMachine.add(30000);
-
-        assertEquals(7012.5,cashMachine.getAverageOfTransactions(), 0.01);
-    }
-    @Test
-    public void shouldReturnAverageEqualsZeroIfArrayIsEmpty() {
-        CashMachine cashMachine = new CashMachine();
-        assertEquals(0, cashMachine.getAverageOfTransactions(), 0.0001);
-    }
 }
