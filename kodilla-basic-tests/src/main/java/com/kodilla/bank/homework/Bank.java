@@ -68,15 +68,17 @@ public class Bank {
         return deposit;
     }
 
-    public double getAverageWithrawals() {
-        if (getWithdrawalsNumber() == 0)
-            return 0;
+    public double getAverageWithdrawal() {
+        if (getWithdrawalsNumber() == 0) {
+            return 0.0;
+        }
         return getWithdrawnSum() / getWithdrawalsNumber();
     }
 
     public double getAverageDeposit() {
-        if (getWithdrawalsNumber() == 0)
-            return 0;
+        if (getWithdrawalsNumber() == 0) {
+            return 0.0;
+        }
         return getDepositSum() / getDepositNumber();
     }
 }

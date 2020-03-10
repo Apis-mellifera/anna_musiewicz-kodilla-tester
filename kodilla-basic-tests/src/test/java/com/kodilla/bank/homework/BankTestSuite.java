@@ -27,8 +27,8 @@ public class BankTestSuite {
 
         //then
         assertEquals(-500, totalBalance);
-
     }
+
     @Test
     public void shouldCountNumberOfWithdrawals() {
         //given
@@ -51,8 +51,8 @@ public class BankTestSuite {
 
         //then
         assertEquals(4, totalWithdraw);
-
     }
+
     @Test
     public void shouldCountNumberOfDeposits() {
         //given
@@ -75,8 +75,8 @@ public class BankTestSuite {
 
         //then
         assertEquals(3, totalDeposits);
-
     }
+
     @Test
     public void shouldCountAverageOfWithdrawals() {
         //given
@@ -95,12 +95,12 @@ public class BankTestSuite {
         Bank bank = new Bank(new CashMachine[]{cashMachine, cashMachine2, cashMachine3});
 
         //when
-        double averageWithdraw = bank.getAverageWithrawals();
+        double averageWithdraw = bank.getAverageWithdrawal();
 
         //then
-        assertEquals(-200, averageWithdraw);
-
+        assertEquals(-200.0, averageWithdraw);
     }
+
     @Test
     public void shouldCountAverageOfDeposits() {
         //given
@@ -113,20 +113,20 @@ public class BankTestSuite {
         cashMachine2.add(300);
         cashMachine2.add(-300);
         cashMachine2.add(-300);
-        cashMachine3.add(500);cashMachine3.add(0);
+        cashMachine3.add(500);
+        cashMachine3.add(0);
 
         Bank bank = new Bank(new CashMachine[]{cashMachine, cashMachine2, cashMachine3});
 
         //when
-        double averagelDeposits = bank.getAverageDeposit();
+        double averageDeposits = bank.getAverageDeposit();
 
         //then
-        assertEquals(300, averagelDeposits);
-
+        assertEquals(300.0, averageDeposits);
     }
 
     @Test
-    public void shouldGiveZeroWhenZeroTransactions() {
+    public void shouldReturnZeroWhenZeroTransactions() {
         //given
         CashMachine cashMachine = new CashMachine();
 
@@ -138,15 +138,14 @@ public class BankTestSuite {
         int totalBalance = bank.getTotalBalance();
         int totalWithdraw = bank.getWithdrawalsNumber();
         int totalDeposits = bank.getDepositNumber();
-        double averageWithdraw = bank.getAverageWithrawals();
-        double averagelDeposits = bank.getAverageDeposit();
+        double averageWithdraw = bank.getAverageWithdrawal();
+        double averageDeposits = bank.getAverageDeposit();
         //then
         assertEquals(0, totalBalance);
         assertEquals(0, totalWithdraw);
         assertEquals(0, totalDeposits);
-        assertEquals(0, averageWithdraw);
-        assertEquals(0, averagelDeposits);
-
+        assertEquals(0.0, averageWithdraw);
+        assertEquals(0.0, averageDeposits);
     }
 
     @Test
@@ -160,17 +159,15 @@ public class BankTestSuite {
         int totalBalance = bank.getTotalBalance();
         int totalWithdraw = bank.getWithdrawalsNumber();
         int totalDeposits = bank.getDepositNumber();
-        double averageWithdraw = bank.getAverageWithrawals();
-        double averagelDeposits = bank.getAverageDeposit();
+        double averageWithdraw = bank.getAverageWithdrawal();
+        double averageDeposits = bank.getAverageDeposit();
         //then
         assertEquals(0, totalBalance);
         assertEquals(0, totalWithdraw);
         assertEquals(0, totalDeposits);
-        assertEquals(0, averageWithdraw);
-        assertEquals(0, averagelDeposits);
-
+        assertEquals(0.0, averageWithdraw);
+        assertEquals(0.0, averageDeposits);
     }
-
 }
 
 
