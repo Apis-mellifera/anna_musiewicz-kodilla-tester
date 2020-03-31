@@ -8,14 +8,11 @@ public class WarehouseApp {
         warehouse.addOrder(new Order("147RT"));
         warehouse.addOrder(new Order("295RT"));
 
-        warehouse.getOrder("125RT");
-
-
         try {
-            boolean doesOrder456RTExists = warehouse.doesOrderExists("456RT");
-            System.out.println("456RT order status: " + doesOrder456RTExists);
+            Order order = warehouse.getOrder("128RT");
+            System.out.println("Order number" + order.getNumber() +  " is found");
         } catch (OrderDoesntExistExeption e) {
-            System.out.println("Sorry, this order doesn't exists");
+            System.out.println("Sorry, this order doesn't exist");
         }
     }
 }
