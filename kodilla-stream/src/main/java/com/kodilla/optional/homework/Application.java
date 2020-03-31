@@ -9,22 +9,18 @@ public class Application {
         List<Student> students = new ArrayList<>();
         students.add(new Student("David Hoff", new Teacher("Naomi Crick")));
         students.add(new Student("Betty Chase", new Teacher("Mark Wilson")));
-        students.add(new Student("Sarah", null));
+        students.add(new Student("Sarah Watts", null));
 
-        //Optional<List<Student>> optionalStudents = Optional.ofNullable(students);
-        //List<Student> studentList = optionalStudents.orElse();
-        Optional<Teacher> optionalTeacher = Optional.ofNullable(new Teacher("<undefined>"));
-        optionalTeacher.ifPresent(s -> System.out.println(s.getName()));
         for (Student student : students) {
-            if (student.getTeacher() == null) {
-                System.out.println("Student: " + student.getName() + (optionalTeacher));
-            }
-            else
-                System.out.println("Student: " + student.getName() + ", teacher: " + student.getTeacher());
+            System.out.println(
+                    "Student: " + student.getName() + ", teacher: "
+                    + Optional.ofNullable(student.getTeacher())
+                    .map(Teacher::getName)
+                    .orElse("<undefined>")
+            );
         }
-
-       }
     }
+}
 
 
 
