@@ -24,42 +24,42 @@ class GamblingMachineTestSuite {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/userNumbersWithZero.csv")
-    public void shouldTrowInvalidNumberExceptionWhenNumberZeroGiven(int a, int b, int c, int d, int e, int f) throws InvalidNumbersException {
+    public void shouldThrowInvalidNumberExceptionWhenNumberZeroGiven(int a, int b, int c, int d, int e, int f) throws InvalidNumbersException {
         Set<Integer> userNumbers = new HashSet<>(Arrays.asList(a, b, c, d, e, f));
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/userThreeNumbers.csv")
-    public void shouldTrowInvalidNumberExceptionWhenThreeNumbersGiven(int a, int b, int c) throws InvalidNumbersException {
+    public void shouldThrowInvalidNumberExceptionWhenThreeNumbersGiven(int a, int b, int c) throws InvalidNumbersException {
         Set<Integer> userNumbers = new HashSet<>(Arrays.asList(a, b, c));
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/userFiveNumbers.csv")
-    public void shouldTrowInvalidNumberExceptionWhenFiveNumbersGiven(int a, int b, int c, int d, int e) throws InvalidNumbersException {
+    public void shouldThrowInvalidNumberExceptionWhenFiveNumbersGiven(int a, int b, int c, int d, int e) throws InvalidNumbersException {
         Set<Integer> userNumbers = new HashSet<>(Arrays.asList(a, b, c, d, e));
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/userSevenNumbers.csv")
-    public void shouldTrowInvalidNumberExceptionWhenSevenNumbersGiven(int a, int b, int c, int d, int e, int f, int g) throws InvalidNumbersException {
+    public void shouldThrowInvalidNumberExceptionWhenSevenNumbersGiven(int a, int b, int c, int d, int e, int f, int g) throws InvalidNumbersException {
         Set<Integer> userNumbers = new HashSet<>(Arrays.asList(a, b, c, d, e, f, g));
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/emptyUserNumbers.csv")
-    public void shouldTrowInvalidNumberExceptionWhenUserNumbersIsEmpty() throws InvalidNumbersException {
+    public void shouldThrowInvalidNumberExceptionWhenUserNumbersIsEmpty() throws InvalidNumbersException {
         Set<Integer> userNumbers = new HashSet<>();
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {5})
-    public void shouldTrowInvalidNumberExceptionWhenOnlyOneNumberGiven(int a) throws InvalidNumbersException {
+    public void shouldThrowInvalidNumberExceptionWhenOnlyOneNumberGiven(int a) throws InvalidNumbersException {
         Set<Integer> userNumbers = new HashSet<>(a);
         assertThrows(InvalidNumbersException.class, () -> gamblingMachine.howManyWins(userNumbers));
     }
