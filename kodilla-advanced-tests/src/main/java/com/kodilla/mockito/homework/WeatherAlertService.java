@@ -39,5 +39,4 @@ public class WeatherAlertService {
     public void cancelLocalization(Localization localization) {
         this.subscriptionMap.remove(localization);
     }
-
 }
