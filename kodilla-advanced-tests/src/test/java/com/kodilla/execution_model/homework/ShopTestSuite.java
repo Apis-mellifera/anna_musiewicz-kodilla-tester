@@ -64,7 +64,7 @@ class ShopTestSuite {
     }
 
     @Test
-    public void shouldReturnEmptySetWhenThereIsNoneOrderInTwoDateRange() {
+    public void shouldReturnEmptySetWhenThereIsNoneOrderInTwoDatesRange() {
         //given
         //when
         Set<Order> interestingOrders = shop.findByDates(

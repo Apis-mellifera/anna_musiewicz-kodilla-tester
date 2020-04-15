@@ -1,7 +1,5 @@
 package com.kodilla.exeption;
 
-import java.sql.SQLOutput;
-
 public class ThirdExample {
     public static void main(String[] args) {
         AirportRepository airportRepository = new AirportRepository();
