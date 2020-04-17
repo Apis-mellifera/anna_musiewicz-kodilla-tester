@@ -18,8 +18,9 @@ class WeatherAlertServiceTestSuite {
     @Test
     public void subscriberShouldReceiveAlert() {
         //given
-        //when
         weatherAlertService.addSubscriberToLocalization(localization, subscriber);
+
+        //when
         weatherAlertService.sendAlertToAllSubscriber(alert);
 
         //then
@@ -29,11 +30,12 @@ class WeatherAlertServiceTestSuite {
     @Test
     public void alertShouldBeSendToAllSubscribers() {
         //given
-        //when
         weatherAlertService.addSubscriberToLocalization(firstLocalization, firstSubscriber);
         weatherAlertService.addSubscriberToLocalization(firstLocalization, secondSubscriber);
         weatherAlertService.addSubscriberToLocalization(secondLocalization, firstSubscriber);
         weatherAlertService.addSubscriberToLocalization(secondLocalization, thirdSubscriber);
+
+        //when
         weatherAlertService.sendAlertToAllSubscriber(alert);
 
         //then
@@ -45,10 +47,11 @@ class WeatherAlertServiceTestSuite {
     @Test
     public void alertShouldBeSendToSubscribersInGivenLocalization() {
         //given
-        //when
         weatherAlertService.addSubscriberToLocalization(firstLocalization, firstSubscriber);
         weatherAlertService.addSubscriberToLocalization(firstLocalization, secondSubscriber);
         weatherAlertService.addSubscriberToLocalization(secondLocalization, firstSubscriber);
+
+        //when
         weatherAlertService.sendAlertToSubscribersInGivenLocalization(firstLocalization, alert);
 
         //then
@@ -59,12 +62,14 @@ class WeatherAlertServiceTestSuite {
     @Test
     public void unsubscribedShouldNotReceiveAlert() {
         //given
-        //when
         weatherAlertService.addSubscriberToLocalization(firstLocalization, firstSubscriber);
         weatherAlertService.addSubscriberToLocalization(firstLocalization, secondSubscriber);
         weatherAlertService.addSubscriberToLocalization(secondLocalization, firstSubscriber);
+
+        //when
         weatherAlertService.removeSubscriber(firstSubscriber);
         weatherAlertService.sendAlertToAllSubscriber(alert);
+
         //then
         Mockito.verify(firstSubscriber, Mockito.never()).receive(alert);
         Mockito.verify(secondSubscriber, Mockito.times(1)).receive(alert);
@@ -73,10 +78,11 @@ class WeatherAlertServiceTestSuite {
     @Test
     public void whenMultiTimeSubscriberRemovedFromLocalizationShouldNotReceiveAlertFromThisLocalization() {
         //given
-        //when
         weatherAlertService.addSubscriberToLocalization(firstLocalization, firstSubscriber);
         weatherAlertService.addSubscriberToLocalization(firstLocalization, secondSubscriber);
         weatherAlertService.addSubscriberToLocalization(secondLocalization, firstSubscriber);
+
+        //when
         weatherAlertService.removeSubscriberFromLocalization(firstSubscriber, firstLocalization);
         weatherAlertService.sendAlertToAllSubscriber(alert);
 
@@ -88,10 +94,11 @@ class WeatherAlertServiceTestSuite {
     @Test
     public void whenLocalizationCancelledSubscribersNotReceiveAlert() {
         //given
-        //when
         weatherAlertService.addSubscriberToLocalization(firstLocalization, firstSubscriber);
         weatherAlertService.addSubscriberToLocalization(firstLocalization, secondSubscriber);
         weatherAlertService.addSubscriberToLocalization(secondLocalization, firstSubscriber);
+
+        //when
         weatherAlertService.cancelLocalization(secondLocalization);
         weatherAlertService.sendAlertToAllSubscriber(alert);
 
