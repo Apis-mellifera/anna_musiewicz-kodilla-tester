@@ -11,7 +11,7 @@ public class Application {
 
         Convertible convertible = new Convertible(4,2);
         convertible.turnOnLights();
-        convertible.displeyNumberOfSeats();
+        convertible.displayNumberOfSeats();
         System.out.println(convertible.getSeats());
     }
 }

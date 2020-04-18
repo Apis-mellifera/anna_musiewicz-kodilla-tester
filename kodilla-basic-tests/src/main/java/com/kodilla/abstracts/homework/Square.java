@@ -2,7 +2,7 @@ package com.kodilla.abstracts.homework;
 
 public class Square extends Shape {
 
-    double a;
+    private double a;
 
     public Square(double a) {
         this.a = a;
