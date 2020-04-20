@@ -13,10 +13,13 @@ public class ClockTestSuite {
 
     @Test
     public void shouldDisplayDifferentTime() {
+        //given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        //when
         Clock firstBean = context.getBean(Clock.class);
         Clock secondBean = context.getBean(Clock.class);
         Clock thirdBean = context.getBean(Clock.class);
+        //then
         Assertions.assertNotEquals(firstBean, secondBean);
         Assertions.assertNotEquals(secondBean, thirdBean);
         Assertions.assertNotEquals(firstBean, thirdBean);
