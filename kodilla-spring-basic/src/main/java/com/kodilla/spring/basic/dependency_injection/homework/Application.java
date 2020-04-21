@@ -1,11 +1,19 @@
 package com.kodilla.spring.basic.dependency_injection.homework;
 
-public class Application {
+public class Application implements ShippingCenter {
+    private DeliveryService deliveryService;
+    private NotificationService notificationService;
 
-    public static void main(String[] args) {
-        DeliveryService deliveryService = new PackageService();
-        NotificationService notificationService = new ReceiverService();
-        ShippingCenter shippingCenter = new ShippingCenter(deliveryService, notificationService);
-        shippingCenter.sendPackage("Hill Street 11, New York", 18.2);
+    public Application(DeliveryService deliveryService, NotificationService notificationService) {
+        this.deliveryService = deliveryService;
+        this.notificationService = notificationService;
+    }
+
+    public void sendPackage(String address, double weight) {
+        if (deliveryService.deliverPackage(address, weight)) {
+            notificationService.success(address);
+        }
+        else
+            notificationService.fail(address);
     }
 }

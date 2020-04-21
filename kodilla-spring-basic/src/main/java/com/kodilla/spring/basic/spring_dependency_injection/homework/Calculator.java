@@ -12,51 +12,30 @@ public class Calculator {
     }
 
     public double add(double a, double b) {
-        if(checkFirstDouble(a)) {
-            this.display.display(a);
-        }
-        if(checkSecondDouble(b)) {
-            this.display.display(b);
-        }
-        return a + b;
+      double result = a + b;
+      this.display.display(result);
+      return result;
     }
 
     public double subtract(double a, double b) {
-        if(checkFirstDouble(a)) {
-            this.display.display(a);
-        }
-        if(checkSecondDouble(b)) {
-            this.display.display(b);
-        }
-        return a - b;
+        double result = a - b;
+        this.display.display(result);
+        return result;
     }
 
     public double multiply(double a, double b) {
-        if(checkFirstDouble(a)) {
-            this.display.display(a);
-        }
-        if(checkSecondDouble(b)) {
-            this.display.display(b);
-        }
-        return a * b;
+        double result = a * b;
+        this.display.display(result);
+        return result;
     }
 
     public double divide(double a, double b) {
-        if(checkFirstDouble(a)) {
-            this.display.display(a);
+        double result = a / b;
+        if(b == 0) {
+            return 0;
+        } else {
+            this.display.display(result);
+            return result;
         }
-        if(checkSecondDouble(b)) {
-            this.display.display(b);
-        }
-        return a / b;
-    }
-
-    private boolean checkFirstDouble(double a) {
-        //return a != Math.floor(a);
-        return (a % 1) != 0;
-    }
-
-    private boolean checkSecondDouble(double b) {
-        return (b % 1) != 0;
     }
 }
