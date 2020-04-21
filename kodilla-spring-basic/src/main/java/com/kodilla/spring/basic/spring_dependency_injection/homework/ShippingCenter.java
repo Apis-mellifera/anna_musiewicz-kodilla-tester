@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ShippingCenter {
-    @Autowired
-    @Qualifier(value = "deliveryService")
     private DeliveryService deliveryService;
-
-    @Autowired
-    @Qualifier(value = "notificationService")
     private NotificationService notificationService;
+
+    public ShippingCenter(DeliveryService deliveryService, NotificationService notificationService) {
+        this.deliveryService = deliveryService;
+        this.notificationService = notificationService;
+    }
 
     public String sendPackage(String address, double weight) {
         if (deliveryService.deliverPackage(address, weight)) {
