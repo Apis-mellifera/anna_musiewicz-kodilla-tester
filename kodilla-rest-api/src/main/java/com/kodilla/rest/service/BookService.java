@@ -21,4 +21,8 @@ public class BookService {
     public void removeBook(BookDto bookDto) {
         books.remove(bookDto);
     }
+
+    public int getSize() {
+        return books.size();
+    }
 }
