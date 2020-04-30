@@ -39,7 +39,7 @@ public class BookControllerTestSuite {
     }
 
     @Test
-    public void shouldVerifyAddingBooks() {
+    public void shouldAddBooks() {
         //given
         BookService bookServiceMock = mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);
@@ -54,20 +54,4 @@ public class BookControllerTestSuite {
         assertEquals("title1", argument.getValue().getTitle());
         assertEquals("author1", argument.getValue().getAuthor());
     }
-
-//    @Test
-//    public void shouldAddBooks() {
-//        //given
-//        BookService bookServiceMock = mock(BookService.class);
-//        BookController bookController = new BookController(bookServiceMock);
-//        BookDto firstBookDto = new BookDto("title1", "author1");
-//        BookDto secondBookDto = new BookDto("title2", "author2");
-//        bookServiceMock.addBook(firstBookDto);
-//        bookServiceMock.addBook(secondBookDto);
-//        Mockito.verify(bookServiceMock, Mockito.times(2)).addBook(Mockito.any(BookDto.class));
-//
-//        //when
-//        bookController.addBook(new BookDto("title1", "author1"));
-//    }
-
 }

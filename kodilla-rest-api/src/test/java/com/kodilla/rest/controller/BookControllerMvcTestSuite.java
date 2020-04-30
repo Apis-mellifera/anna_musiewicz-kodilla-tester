@@ -45,7 +45,7 @@ public class BookControllerMvcTestSuite {
     }
 
     @Test
-    public void shouldCreateBook() throws Exception {
+    public void shouldAddBook() throws Exception {
         //given
         Gson gson = new Gson();
         BookDto exampleBook = new BookDto("title1", "author1");
@@ -57,15 +57,5 @@ public class BookControllerMvcTestSuite {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json))
                 .andExpect(status().is(200));
-
-//        mockMvc.perform(post("/books")
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .content(json)
-//                .accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().is(200))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("title1"))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.author").value("author1"))
-//                .andDo(print());
-
     }
 }
