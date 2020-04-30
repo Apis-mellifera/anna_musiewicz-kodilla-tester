@@ -1,0 +1,17 @@
+season,hour,carType,lights
+Spring,20:00:01,Sedan,true
+Spring,20:00:00,Sedan,false
+Spring,06:00:01,Sedan,false
+Spring,06:00:00,Sedan,true
+Autumn,20:00:01,Sedan,true
+Autumn,20:00:00,Sedan,false
+Autumn,06:00:01,Sedan,false
+Autumn,06:00:00,Sedan,true
+Summer,20:00:01,Cabrio,true
+Summer,20:00:00,Cabrio,false
+Summer,06:00:01,Cabrio,false
+Summer,06:00:00,Cabrio,true
+Winter,20:00:01,SUV,true
+Winter,20:00:00,SUV,false
+Winter,06:00:01,SUV,false
+Winter,06:00:00,SUV,true

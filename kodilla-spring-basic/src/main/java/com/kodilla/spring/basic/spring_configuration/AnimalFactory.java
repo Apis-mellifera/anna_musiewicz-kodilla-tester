@@ -8,10 +8,10 @@ import java.util.Random;
 @Configuration
 public class AnimalFactory {
 
-    @Bean
-    public Dog createDog() {
-        return new Dog();
-    }
+//    @Bean
+//    public Dog createDog() {
+//        return new Dog();
+//    }
 
     @Bean
     public Animal randomAnimal() {
