@@ -25,7 +25,6 @@ configurations {
     jaxb
 }
 
-
 task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
     ext.classesDir = "${buildDir}/classes/jaxb"
@@ -73,8 +72,6 @@ dependencies {
     compile('org.glassfish.jaxb:jaxb-runtime:2.3.1')
 }
 
-
 bootJar {
-
     from genJaxb.classesDir
 }
