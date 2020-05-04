@@ -1,0 +1,14 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getBookResponse xmlns:ns2="http://kodilla.com/books/soap">
+            <ns2:book>
+                <ns2:callNo>123FS</ns2:callNo>
+                <ns2:title>The Hobbit</ns2:title>
+                <ns2:author>J.R.R. Tolkien</ns2:author>
+                <ns2:pubYear>1937</ns2:pubYear>
+                <ns2:genre>FANTASY</ns2:genre>
+            </ns2:book>
+        </ns2:getBookResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

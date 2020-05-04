@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:kodilla="http://kodilla.com/books/soap">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <kodilla:getBookRequest>
+            <kodilla:callNo>123FS</kodilla:callNo>
+        </kodilla:getBookRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
