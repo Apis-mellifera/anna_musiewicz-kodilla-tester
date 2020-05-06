@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        -<con:soapui-project xmlns:con="http://eviware.com/soapui/config" soapui-version="5.5.0" name="Kodilla soap library" activeEnvironment="Default" id="84a4c343-3a3e-45b2-81a4-c7ae84af58c9">
+
+    <con:settings/>
+
+
+    -<con:interface name="BooksPortSoap11" id="a43c93a1-f92f-4cbc-86c9-d782741ca2d9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" definition="http://localhost:8080/ws/books.wsdl" anonymous="optional" soapVersion="1_1" bindingName="{http://kodilla.com/books/soap}BooksPortSoap11" type="wsdl" xsi:type="con:WsdlInterface" wsaVersion="NONE">
+
+    <con:settings/>
+
+
+    -<con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/books.wsdl">
+
+
+    -<con:part>
+
+    <con:url>http://localhost:8080/ws/books.wsdl</con:url>
+
+
+    -<con:content>
+
+    -<![CDATA[<wsdl:definitions targetNamespace="http://kodilla.com/books/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://kodilla.com/books/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kodilla.com/books/soap">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://kodilla.com/books/soap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getBookRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="callNo" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBookResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="book" type="tns:book"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="book">
+        <xs:sequence>
+          <xs:element name="callNo" type="xs:string"/>
+          <xs:element name="title" type="xs:string"/>
+          <xs:element name="author" type="xs:string"/>
+          <xs:element name="pubYear" type="xs:int"/>
+          <xs:element name="genre" type="tns:genre"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="genre">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="FANTASY"/>
+          <xs:enumeration value="CRIME"/>
+          <xs:enumeration value="SCI_FI"/>
+          <xs:enumeration value="TECH"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getBookRequest">
+    <wsdl:part element="tns:getBookRequest" name="getBookRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookResponse">
+    <wsdl:part element="tns:getBookResponse" name="getBookResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BooksPort">
+    <wsdl:operation name="getBook">
+      <wsdl:input message="tns:getBookRequest" name="getBookRequest"></wsdl:input>
+      <wsdl:output message="tns:getBookResponse" name="getBookResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BooksPortSoap11" type="tns:BooksPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBook">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBookRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BooksPortService">
+    <wsdl:port binding="tns:BooksPortSoap11" name="BooksPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]>
+</con:content>
+
+    <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+
+</con:part>
+
+</con:definitionCache>
+
+
+    -<con:endpoints>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+</con:endpoints>
+
+
+    -<con:operation name="getBook" id="ca09cf72-c31b-4546-971e-76baa4ac54e0" anonymous="optional" type="Request-Response" sendsAttachments="false" receivesAttachments="false" inputName="getBookRequest" outputName="getBookResponse" bindingOperationName="getBook" action="" isOneWay="false">
+
+    <con:settings/>
+
+
+    -<con:call name="Request 1" id="e33fdd09-61c6-4ba2-a59b-a55897e105a7">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>908TE</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:call>
+
+</con:operation>
+
+</con:interface>
+
+
+    -<con:testSuite name="Books TestSuite" id="3734ffcb-b63b-45f0-94b3-e9057b39feb5">
+
+    <con:settings/>
+
+    <con:runType>SEQUENTIAL</con:runType>
+
+
+    -<con:testCase name="Not existing book TestCase" id="281734d9-0c28-451f-a63d-fd2a5820f4cd" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="31b0c824-a00f-4e65-b512-c9746d3a9093" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>456SCI</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Not Contains genre" id="2eda676e-ea44-4b72-8c0a-b644d2915b48" type="Simple NotContains">
+
+
+    -<con:configuration>
+
+    <token>genre</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:assertion name="Not Contains pubYear" id="32c5e95f-2d97-4cf9-9655-77b94732b576" type="Simple NotContains">
+
+
+    -<con:configuration>
+
+    <token>pubYear</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book genre CRIME TestCase" id="d3b500d5-67e6-41c1-9f8a-8538ae5c164f" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="9d84d92a-3248-40fb-a067-2e34e1d38ef5" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>456SCI</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Not Contains" id="1768edc3-24cc-4ec9-a970-057e2cb4d742" type="Simple NotContains">
+
+
+    -<con:configuration>
+
+    <token>genre</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book genre FANTASY TestCase" id="5f3d6b9d-6dd8-4993-9062-86f1b2544809" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="657f06d4-de5d-424d-b010-8f23b6082aca" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>123FS</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="a3c9bcfa-f8f6-43d6-b64e-76608562c79a" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>genre>fantasy<</token>
+
+    <ignoreCase>true</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book genre SCI-FI TestCase" id="edc6c6c3-9b1d-4f9b-ab87-88da51267199" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="642087cd-9eb4-4110-b7a7-9091cfb0ae65" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>789SF</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="d506d703-f462-436a-8f16-298f78f20224" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>genre>sci_fi<</token>
+
+    <ignoreCase>true</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book genre TECH TestCase" id="ed5e5864-83f8-4050-9339-7ddc26ece257" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="468bd731-c3c9-436b-add0-1bc90f0e2cfa" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>908TE</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="8bf10b8f-ead2-4913-b316-b2d10a15b610" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>genre>tech<</token>
+
+    <ignoreCase>true</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book pubYear 1937 TestCase" id="756f5fec-c75c-45c3-9aae-7bc20a293c26" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="76436742-658b-4a4a-aa73-97c0b25b3a10" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>123FS</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="964cb594-ebb6-4257-933f-cb89efbf30bb" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>pubYear>1937<</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book pubYear 1967 TestCase" id="a6710888-6d42-4e14-932b-76eb499b811d" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="ce376b16-ffec-459d-b4a5-55c76cbd8ace" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>456CRI</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="f9c1117c-2304-49e6-bc19-52ee51318688" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>pubYear>1967<</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book pubYear 1975 TestCase" id="893998ea-b426-42d9-a974-8eb5c52d6d22" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="21de42dd-672f-4270-a2de-1dfe15339375" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>789SF</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="cf8e7b7b-f689-4ac5-b3d0-3ff5b6513856" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>pubYear>1975<</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+
+    -<con:testCase name="Book pubYear 2019 TestCase" id="b0677463-75b9-42f2-a4c2-ca243016462f" searchProperties="true" maxResults="0" keepSession="false" failTestCaseOnErrors="true" failOnError="true">
+
+    <con:settings/>
+
+
+    -<con:testStep name="getBook" id="e3642985-c1bb-44bd-a28a-cdb422e21bf9" type="request">
+
+    <con:settings/>
+
+
+    -<con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
+
+    <con:interface>BooksPortSoap11</con:interface>
+
+    <con:operation>getBook</con:operation>
+
+
+    -<con:request name="getBook" id="89e32ff5-5bcf-4390-9dd5-32b7cee2d9eb">
+
+
+    -<con:settings>
+
+    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting>
+
+</con:settings>
+
+    <con:encoding>UTF-8</con:encoding>
+
+    <con:endpoint>http://localhost:8080/ws</con:endpoint>
+
+
+    -<con:request>
+
+    -<![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/books/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getBookRequest>\r
+         <soap:callNo>908TE</soap:callNo>\r
+      </soap:getBookRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]>
+</con:request>
+
+
+    -<con:assertion name="Contains" id="10608e85-99ed-4fb5-9e7a-bd955303149c" type="Simple Contains">
+
+
+    -<con:configuration>
+
+    <token>pubYear>2019<</token>
+
+    <ignoreCase>false</ignoreCase>
+
+    <useRegEx>false</useRegEx>
+
+</con:configuration>
+
+</con:assertion>
+
+
+    -<con:credentials>
+
+    <con:authType>No Authorization</con:authType>
+
+</con:credentials>
+
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+
+    <con:jmsPropertyConfig/>
+
+    <con:wsaConfig action="http://kodilla.com/books/soap/BooksPort/getBookRequest" version="200508" mustUnderstand="NONE"/>
+
+    <con:wsrmConfig version="1.2"/>
+
+</con:request>
+
+</con:config>
+
+</con:testStep>
+
+    <con:properties/>
+
+</con:testCase>
+
+    <con:properties/>
+
+</con:testSuite>
+
+    <con:properties/>
+
+    <con:wssContainer/>
+
+    <con:oAuth2ProfileContainer/>
+
+    <con:oAuth1ProfileContainer/>
+
+    <con:sensitiveInformation/>
+
+</con:soapui-project>

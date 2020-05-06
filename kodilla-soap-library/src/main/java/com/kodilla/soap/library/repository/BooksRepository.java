@@ -44,10 +44,10 @@ public class BooksRepository {
 
         Book howSmart = new Book();
         howSmart.setCallNo("908TE");
-        ubik.setTitle("How smart machines think");
-        ubik.setAuthor("S. Gerrish");
-        ubik.setPubYear(2019);
-        ubik.setGenre(Genre.TECH);
+        howSmart.setTitle("How smart machines think");
+        howSmart.setAuthor("S. Gerrish");
+        howSmart.setPubYear(2019);
+        howSmart.setGenre(Genre.TECH);
 
         books.put(howSmart.getCallNo(), howSmart);
     }

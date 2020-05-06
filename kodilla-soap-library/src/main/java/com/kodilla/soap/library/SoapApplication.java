@@ -1,5 +1,6 @@
 package com.kodilla.soap.library;
 
+import com.kodilla.soap.library.repository.BooksRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
