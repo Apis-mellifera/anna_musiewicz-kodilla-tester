@@ -13,10 +13,6 @@ public class AllegroTestingApp {
         WebDriver driver = new ChromeDriver();
         driver.get("https://allegro.pl/");
 
-       // while (!driver.findElement(By.xpath("//html/body/div/div/div/div/div/button/img")).isDisplayed()) {
-       //     driver.findElement(By.xpath("//html/body/div/div/div/div/div/button/img")).click();
-       // }
-
         while (!driver.findElement(By.xpath("//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).isDisplayed()) {
         }
         driver.findElement(By.xpath("//*[@data-box-name=\"allegro.rodoConsentModal\"]/div/div/div/button")).click();
@@ -38,8 +34,6 @@ public class AllegroTestingApp {
         );
         searchButton.click();
 
-
-
-
+        driver.quit();
     }
 }
