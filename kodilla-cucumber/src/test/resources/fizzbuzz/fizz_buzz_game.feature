@@ -10,4 +10,4 @@ Feature: Fizz Buzz game
     | multiples of three | "Fizz" |
     | multiples of five  | "Buzz" |
     | multiples of both three and five |"FizzBuzz" |
-    | other numbers                    | "None"    |
+    | plain number                    | "None"    |
