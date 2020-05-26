@@ -97,7 +97,61 @@ public class DbManagerTestSuite {
         statement.close();
     }
 
+    @Test
+    public void testSelectUsersAndPosts() throws SQLException {
+        //given
+        DbManager dbManager = DbManager.getInstance();
 
+        //when
+        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
+        Statement statement = dbManager.getConnection().createStatement();
+        ResultSet rs = statement.executeQuery(sqlQuery);
 
+        //then
+        int counter = 0;
+        while (rs.next()) {
+            System.out.println(rs.getString("U.FIRSTNAME") + ", " +
+                               rs.getString("U.LASTNAME"));
+            counter++;
+        }
+        rs.close();
+        statement.close();
+        Assert.assertEquals(2, counter);
+    }
 
+    @Test
+    public void testCorrectionSelectUsersAndPosts() throws SQLException {
+        //given
+        DbManager dbManager = DbManager.getInstance();
+        String countQuery = "SELECT USER_ID, COUNT(*) AS POSTS_NUMBER FROM POSTS GROUP BY USER_ID HAVING COUNT(*) >= 2";
+        Statement statement = dbManager.getConnection().createStatement();
+        ResultSet rs = statement.executeQuery(countQuery);
+        int count = 0;
+        while (rs.next()) {
+            count = rs.getInt("USER_ID");
+        }
+        String sql = "INSERT INTO POSTS (USER_ID, BODY) VALUES (6, 'testing message!')";
+        statement.executeUpdate(sql);
+        sql = "INSERT INTO POSTS (USER_ID, BODY) VALUES (6, 'testing message')";
+        statement.executeUpdate(sql);
+
+        //when
+        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
+        statement = dbManager.getConnection().createStatement();
+        rs = statement.executeQuery(sqlQuery);
+
+        // then
+        int counter = 0;
+        while(rs.next()) {
+            System.out.println(
+                               rs.getString("U.FIRSTNAME") + ", " +
+                               rs.getString("U.LASTNAME"));
+            counter++;
+        }
+        int expected = count + 1;
+        Assert.assertEquals(expected, counter);
+
+        rs.close();
+        statement.close();
+    }
 }
