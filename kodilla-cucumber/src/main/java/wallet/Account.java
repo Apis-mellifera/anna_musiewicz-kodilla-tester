@@ -1,19 +1,14 @@
 package wallet;
 
-public class Wallet {
+public class Account {
     private int balance = 0;
     private String number;
 
-    public Wallet() {
-
+    public Account() {
     }
 
     public void deposit(int money) {
         this.balance += money;
-    }
-
-    public void debit(int money) {
-        this.balance -= money;
     }
 
     public int getBalance() {
