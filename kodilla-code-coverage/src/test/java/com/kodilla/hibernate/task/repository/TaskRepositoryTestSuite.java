@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.task.repository;
 
 import com.kodilla.hibernate.task.Task;
+import com.kodilla.hibernate.task.TaskFinancialDetails;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.swing.text.html.Option;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,6 +70,28 @@ public class TaskRepositoryTestSuite {
 
         //cleanUp
         int id = readTasks.get(0).getId();
+        taskRepository.deleteById(id);
+    }
+
+    @Test
+    public void testTaskRepositorySaveWithFinancialDetails() {
+        //given
+        // tworzymy nowy obiekt klasy Task,
+        // a nastepnie do jego właściwości taskFinancialDetails przypisywany jest nowy obiekt klasy TaskFinancialDetails
+        Task task = new Task(DESCRIPTION, 30);
+        TaskFinancialDetails financialDetails = new TaskFinancialDetails(new BigDecimal(120), false);
+        task.setTaskFinancialDetails(financialDetails);
+
+        //when
+        // wywołujemy metodę save(Task task) kontrolera repozytorium
+        // zapamiętujemy id który został nadany obiektowi klasy Task przez Hibernata
+        taskRepository.save(task);
+        int id = task.getId();
+
+        //then
+        Assert.assertNotEquals(0, id);
+
+        //cleanUp
         taskRepository.deleteById(id);
     }
 
