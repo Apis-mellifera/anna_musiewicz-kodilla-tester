@@ -19,43 +19,43 @@ public class DbManagerTestSuite {
         Assert.assertNotNull(dbManager.getConnection());
     }
 
-    @Test
+    // @Test
     // ten test ma wadę, gdyż polega na danych znajdujących sie obecnie w bazie
-    public void testSelectUsers() throws SQLException {
-        //given
-        DbManager dbManager = DbManager.getInstance();
+    //public void testSelectUsers() throws SQLException {
+    //given
+    // DbManager dbManager = DbManager.getInstance();
 
-        //when
-        String sqlQuery = "SELECT * FROM USERS";
-        //tworzymy obiekt implementujący interfejs Statement dostarczany przez java.sql
-        // obiekt tworzony jest przez metodę createStatement
-        // Statement jest swego rodzaju zapytaniem
-        Statement statement = dbManager.getConnection().createStatement();
-        // zapytanie wykonujemy wywołując metodę executeQuery
-        // jako argument podajemy String z treścią zapytania czyli Select from users
-        //metoda zwraca kolekcję danych typu ResultSet
-        // po kolekcji możemy iterować przy pomocy metody next()
-        ResultSet rs = statement.executeQuery(sqlQuery);
+    //when
+    // String sqlQuery = "SELECT * FROM USERS";
+    //tworzymy obiekt implementujący interfejs Statement dostarczany przez java.sql
+    // obiekt tworzony jest przez metodę createStatement
+    // Statement jest swego rodzaju zapytaniem
+    // Statement statement = dbManager.getConnection().createStatement();
+    // zapytanie wykonujemy wywołując metodę executeQuery
+    // jako argument podajemy String z treścią zapytania czyli Select from users
+    //metoda zwraca kolekcję danych typu ResultSet
+    // po kolekcji możemy iterować przy pomocy metody next()
+    //  ResultSet rs = statement.executeQuery(sqlQuery);
 
-        //then
-        // do pobrania danych używamy metod getInt, getString itp
-        // metody te udostepnia obiekt klasy ResultSet
-        int counter = 0;
-        while (rs.next()) {
-            System.out.println(rs.getInt("ID") + ", " +
-                               rs.getString("FIRSTNAME") + ", " +
-                               rs.getString("LASTNAME"));
-            counter++;
-        }
-        // obiekty typu ResultSet i Statement nalezy zamykać przy pomocy metody close(), by zwolnić zasoby systemowe
-        rs.close();
-        statement.close();
-        Assert.assertEquals(5, counter);
-    }
+    //then
+    // do pobrania danych używamy metod getInt, getString itp
+    // metody te udostepnia obiekt klasy ResultSet
+    // int counter = 0;
+    // while (rs.next()) {
+    //    System.out.println(rs.getInt("ID") + ", " +
+    //                       rs.getString("FIRSTNAME") + ", " +
+    //                       rs.getString("LASTNAME"));
+    //     counter++;
+    //  }
+    // obiekty typu ResultSet i Statement nalezy zamykać przy pomocy metody close(), by zwolnić zasoby systemowe
+    //  rs.close();
+    // statement.close();
+    //  Assert.assertEquals(5, counter);
+    //  }
 
     @Test
     // test niezależny od obecnego stanu bazy danych
-    public void testCorrectionSelectUsers() throws SQLException {
+    public void testSelectUsers() throws SQLException {
         //given
         DbManager dbManager = DbManager.getInstance();
         //sprawdzamy ile elementów znajduje się w tabeli
@@ -86,8 +86,8 @@ public class DbManagerTestSuite {
         int counter = 0;
         while (rs.next()) {
             System.out.println(rs.getInt("ID") + ", " +
-                               rs.getString("FIRSTNAME") + ", " +
-                               rs.getString("LASTNAME"));
+                    rs.getString("FIRSTNAME") + ", " +
+                    rs.getString("LASTNAME"));
             counter++;
         }
         int expected = count + 5;
@@ -96,62 +96,64 @@ public class DbManagerTestSuite {
         rs.close();
         statement.close();
     }
+}
 
-    @Test
-    public void testSelectUsersAndPosts() throws SQLException {
+  //  @Test
+  //  public void testSelectUsersAndPosts() throws SQLException {
         //given
-        DbManager dbManager = DbManager.getInstance();
+     //   DbManager dbManager = DbManager.getInstance();
 
         //when
-        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
-        Statement statement = dbManager.getConnection().createStatement();
-        ResultSet rs = statement.executeQuery(sqlQuery);
+      //  String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
+      //  Statement statement = dbManager.getConnection().createStatement();
+     //   ResultSet rs = statement.executeQuery(sqlQuery);
 
         //then
-        int counter = 0;
-        while (rs.next()) {
-            System.out.println(rs.getString("U.FIRSTNAME") + ", " +
-                               rs.getString("U.LASTNAME"));
-            counter++;
-        }
-        rs.close();
-        statement.close();
-        Assert.assertEquals(2, counter);
-    }
+     //   int counter = 0;
+     //   while (rs.next()) {
+     //       System.out.println(rs.getString("U.FIRSTNAME") + ", " +
+     //                          rs.getString("U.LASTNAME"));
+     //       counter++;
+    //    }
+      //  rs.close();
+     //   statement.close();
+     //   Assert.assertEquals(2, counter);
+ //   }
 
-    @Test
-    public void testCorrectionSelectUsersAndPosts() throws SQLException {
+   // @Test
+   // public void testSelectUsersAndPosts() throws SQLException {
         //given
-        DbManager dbManager = DbManager.getInstance();
-        String countQuery = "SELECT USER_ID, COUNT(*) AS POSTS_NUMBER FROM POSTS GROUP BY USER_ID HAVING COUNT(*) >= 2";
-        Statement statement = dbManager.getConnection().createStatement();
-        ResultSet rs = statement.executeQuery(countQuery);
-        int count = 0;
-        while (rs.next()) {
-            count = rs.getInt("USER_ID");
-        }
-        String sql = "INSERT INTO POSTS (USER_ID, BODY) VALUES (6, 'testing message!')";
-        statement.executeUpdate(sql);
-        sql = "INSERT INTO POSTS (USER_ID, BODY) VALUES (6, 'testing message')";
-        statement.executeUpdate(sql);
+     //   DbManager dbManager = DbManager.getInstance();
+     //   String countQuery = "SELECT USER_ID, COUNT(*) AS POSTS_NUMBER FROM POSTS GROUP BY USER_ID HAVING COUNT(*) >= 2";
+     //   Statement statement = dbManager.getConnection().createStatement();
+     //   ResultSet rs = statement.executeQuery(countQuery);
+     //   int count = 0;
+     //   while (rs.next()) {
+     //       count = rs.getInt("POSTS_NUMBER");
+     //   }
+     //   String sql = "INSERT INTO POSTS (USER_ID, BODY) VALUES (16, 'testing message!')";
+     //   statement.executeUpdate(sql);
+     //   sql = "INSERT INTO POSTS (USER_ID, BODY) VALUES (16, 'testing message')";
+     //   statement.executeUpdate(sql);
 
         //when
-        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
-        statement = dbManager.getConnection().createStatement();
-        rs = statement.executeQuery(sqlQuery);
+     //   String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
+     //   statement = dbManager.getConnection().createStatement();
+     //   rs = statement.executeQuery(sqlQuery);
 
         // then
-        int counter = 0;
-        while(rs.next()) {
-            System.out.println(
-                               rs.getString("U.FIRSTNAME") + ", " +
-                               rs.getString("U.LASTNAME"));
-            counter++;
-        }
-        int expected = count + 1;
-        Assert.assertEquals(expected, counter);
+     //   int counter = 0;
+      //  while(rs.next()) {
+     //       System.out.println(
+     //                          rs.getString("U.FIRSTNAME") + ", " +
+     //                          rs.getString("U.LASTNAME"));
+     //       counter++;
+     //   }
+     //   int expected = count;
+     //   Assert.assertEquals(expected, counter);
 
-        rs.close();
-        statement.close();
-    }
-}
+     //   rs.close();
+     //   statement.close();
+  //  }
+
+
