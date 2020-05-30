@@ -49,9 +49,4 @@ public class InvoiceRepositoryTestSuite {
         //cleanUp
         invoiceRepository.deleteById(id);
     }
-
-    @After
-    public void cleanAllTestData() {
-        invoiceRepository.deleteAll();
-    }
 }
