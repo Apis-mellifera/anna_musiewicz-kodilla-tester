@@ -73,13 +73,13 @@ public class Item {
         this.product = product;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;

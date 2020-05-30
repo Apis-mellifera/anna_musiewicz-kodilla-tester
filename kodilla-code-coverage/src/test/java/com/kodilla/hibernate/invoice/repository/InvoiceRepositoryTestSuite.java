@@ -3,6 +3,7 @@ package com.kodilla.hibernate.invoice.repository;
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 
 @RunWith(SpringRunner.class)
@@ -20,6 +22,7 @@ public class InvoiceRepositoryTestSuite {
     private InvoiceRepository invoiceRepository;
 
     // test ma sprawdzać czy faktura z kilkoma pozycjami zapisuje się poprawnie w bazie danych
+    @Transactional
     @Test
     public void testInvoiceRepositorySave() {
         //given
@@ -45,5 +48,10 @@ public class InvoiceRepositoryTestSuite {
 
         //cleanUp
         invoiceRepository.deleteById(id);
+    }
+
+    @After
+    public void cleanAllTestData() {
+        invoiceRepository.deleteAll();
     }
 }
