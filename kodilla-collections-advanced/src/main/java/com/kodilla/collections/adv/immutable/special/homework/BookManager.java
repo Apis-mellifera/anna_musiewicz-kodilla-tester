@@ -24,4 +24,8 @@ public class BookManager {
         books.add(book);
         return book;
     }
+
+    public List<Book> getBookList() {
+        return books;
+    }
 }
