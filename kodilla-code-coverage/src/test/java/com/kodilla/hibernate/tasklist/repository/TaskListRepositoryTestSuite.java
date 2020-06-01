@@ -37,7 +37,7 @@ public class TaskListRepositoryTestSuite {
 
         //cleanUp
         int id = readTaskList.get(0).getId();
-        taskListRepository.existsById(id);
+        taskListRepository.deleteById(id);
     }
 
     @Test
